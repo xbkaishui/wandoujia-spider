@@ -30,8 +30,8 @@ def format_url(full_url):
     if len(full_url) < 2:
         return full_url
     url = urllib.parse.urlparse(full_url)
-    pairs = url.netloc.split('.')
-    return pairs[-2] + "." + pairs[-1]
+    # pairs = url.netloc.split('.')
+    return url.netloc
 
 
 class BankSpider(object):
