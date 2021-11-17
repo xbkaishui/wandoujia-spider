@@ -39,5 +39,15 @@ class MyTestCase(unittest.TestCase):
         logger.info("privacy_url {}", privacy_url)
 
 
+    def test_anzhi_banks(self):
+        url = " http://www.anzhi.com/pkg/ff76_com.qihuo.zhongxinsjsj.html"
+        response = requests.get(url)
+        tree = html.fromstring(response.text)
+        categories = tree.xpath("//*[@id='detail_line_ul']/li[1]/text()")
+        logger.info("categories {}", categories)
+        privacy_url = tree.xpath("//*[@id='detail_line_ul']/li[9]/a/@href")
+        logger.info("privacy_url {}", privacy_url)
+
+
 if __name__ == '__main__':
     unittest.main()

@@ -34,7 +34,7 @@ def format_url(full_url):
     return url.netloc
 
 
-class BankSpider(object):
+class WanDouJiaBankSpider(object):
 
     def crawl(self, banks_url_file, out_file):
         csv_file = open(out_file, 'w', newline='')
