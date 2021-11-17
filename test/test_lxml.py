@@ -21,12 +21,13 @@ class MyTestCase(unittest.TestCase):
         print('Prices: ', prices)
 
     def test_path_wandujia(self):
-        content = Path('/Users/xbkaishui/work/sources/wandoujia-spider/data/alipay_detail.html').read_text()
+        # content = Path('/Users/xbkaishui/work/sources/wandoujia-spider/data/alipay_detail.html').read_text()
+        content = Path('/Users/xbkaishui/work/sources/wandoujia-spider/data/7062821').read_text()
         tree = html.fromstring(content)
         categories = tree.xpath('/html/body/div[2]/div[2]/div[2]/div[2]/div[1]/dl/dd[2]/a/text()')
-        logger.info("categories {}", categories)
-        privacy_url = tree.xpath('/html/body/div[2]/div[2]/div[2]/div[2]/div[1]/dl/dd[5]/a/@href')
-        logger.info("privacy_url {}", privacy_url)
+        logger.info("categories {}", ' '.join(categories))
+        privacy_url = tree.xpath('//a[@class=\'privacy-link\']/@href')
+        logger.info("privacy_url {}", ''.join(privacy_url))
 
     def test_read_from_url(self):
         url = "https://www.wandoujia.com/apps/279979";
